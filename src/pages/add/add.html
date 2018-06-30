@@ -1,0 +1,55 @@
+<!--
+  Generated template for the EditPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar color="primary">
+      <ion-title>Add</ion-title>
+      <ion-buttons end>
+        <button ion-button (click)="goHome()">
+          <ion-icon name="home"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  
+  <ion-content padding>
+    <ion-card>
+      <ion-card-header>Id = {{editedUser.Id}}</ion-card-header>
+    </ion-card>    
+
+    <ion-list>
+
+      <ion-item hidden>
+          <ion-label floating>Id</ion-label>
+          <ion-input type="text" [(ngModel)]="editedUser.Id" readonly disabled #id="ngModel"></ion-input>
+        </ion-item>
+      
+        <ion-item>
+          <ion-label floating>Username</ion-label>
+          <ion-input type="text" name="username" [(ngModel)]="editedUser.Username" required #username="ngModel"></ion-input>
+        </ion-item>
+    
+        <ion-item>
+          <ion-label floating>Password</ion-label>
+          <ion-input type="text" name="password" [(ngModel)]="editedUser.Password" required #password="ngModel"></ion-input>
+          </ion-item>
+    
+          <ion-item>
+            <ion-label floating>Email</ion-label>
+            <ion-input type="email" name="email" [(ngModel)]="editedUser.Email" required #email="ngModel"></ion-input>
+          </ion-item>
+       
+    </ion-list>
+    
+    <div padding>
+      <button block ion-button [disabled]="username.invalid || password.invalid || email.invalid || email.value.indexOf('@') == -1" (click)="saveNewUser()">Save</button>
+    </div>
+  
+  </ion-content>
+  

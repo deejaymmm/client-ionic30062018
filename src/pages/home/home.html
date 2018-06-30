@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      Users
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div padding>
+    <button block ion-button color="secondary" (click)="addNewUser(users.length, this.users[this.users.length - 1].Id+1)">Add new user</button>
+  </div>
+  <button ion-item disabled>
+    <ion-row>
+        <ion-col col-1>Id</ion-col>
+        <ion-col>Username</ion-col>
+        <ion-col>Password</ion-col>
+        <ion-col col-4>Email</ion-col>
+    </ion-row>
+  </button>
+  <button ion-item *ngFor="let user of users" (click)="navEditUser($event, user)">
+    <ion-row>
+        <ion-col col-1>{{ user.Id }}</ion-col>
+        <ion-col>{{ user.Username }}</ion-col>
+        <ion-col>{{ user.Password }}</ion-col>
+        <ion-col col-4>{{ user.Email }}</ion-col>
+    </ion-row>    
+  </button>
+</ion-content>
